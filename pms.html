@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/lzrdGreen.jpg">
+</head>
+<body>
+  <header>
+    <h1>ScaleLab by lzrdGreen</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="proj.html">Portfolio</a></li>
+            <li><a href="legacy.html">Legacy Projects</a></li>               
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Project Management System</h2>
+    <button id="pms-site" onclick="location.href='https://alexpar.pythonanywhere.com/pms/'">Visit Site</button>
+    <p><strong>Overview/Goals: </strong>The PMS app offers a user-friendly, versatile project management solution, enabling users to efficiently create, view, edit, and delete tasks and projects (CRUD operations). It provides dual views (list and board) for enhanced project visualisation, streamlining workflows while prioritising simplicity and usability. Designed for small businesses and freelancers, the app avoids feature overload often found in complex tools. Currently, my focus is on migrating the application to the cloud using a "lift, tinker, and shift" strategy to explore containerization and AWS services.</p>
+    <p>GitHub repo: <a href="https://github.com/lzrdGreen/pms">github.com/lzrdGreen/pms</a></p>
+    <p><strong>Technical Details:</strong></p>
+    <ul>
+        <li><p><strong>Programming languages and frameworks: </strong>Python, Django</p></li>
+        <li><p><strong>Database technology: </strong>orirginally the project used the default SQLite, a lightweight database suitable for development environments, however it is not supported in the AWS Cloud so migration would force usage of MySQL version of Amazon Relational Database Service, a more scalable option for cloud deployments.</p></li>
+        <li><p><strong>Deployment details: </strong>Live deployment on PythonAnywhere</p></li>
+    </ul>
+    <p><strong>Key Features:</strong></p>
+    <ul>
+        <li><p><strong>Dual view options: </strong>List and board views for flexible project visualisation.</p></li>
+        <li><p>Intuitive user interface for easy navigation and task management.</p></li>
+        <li><p>Streamlined project management workflows to enhance productivity. Visual progress indicators for project completion status.</p></li>
+        <li><p>Comprehensive task and project CRUD operations.</p></li>
+        <li><p>Task prioritisation and categorisation.</p></li>
+        <li><p>Keyword search and task filtering by tags for efficient information retrieval.</p></li>        
+    </ul>
+    <figure>
+        <a target="_blank" href="images/pms0.png">
+          <img src="images/pms0.png" alt="Project Management System screenshot" class="thumb">
+        </a>
+        <a target="_blank" href="images/pms1.png">
+          <img src="images/pms1.png" alt="Project Management System screenshot" class="thumb">
+        </a>
+        <a target="_blank" href="images/pms2.png">
+          <img src="images/pms2.png" alt="Project Management System screenshot" class="thumb">
+        </a>
+        <a target="_blank" href="images/pms3.png">
+          <img src="images/pms3.png" alt="Project Management System screenshot" class="thumb">
+        </a>
+        <a target="_blank" href="images/pms.png">
+            <img src="images/pms.png" alt="Project Management System screenshot" class="thumb">
+          </a>
+          <a target="_blank" href="images/pms4.png">
+            <img src="images/pms4.png" alt="Project Management System screenshot" class="thumb">
+          </a>
+          <a target="_blank" href="images/pms5.png">
+            <img src="images/pms5.png" alt="Project Management System screenshot" class="thumb">
+          </a>
+        <a target="_blank" href="images/pms6.png">
+          <img src="images/pms6.png" alt="Project Management System screenshot" class="thumb">
+        </a>
+        <a target="_blank" href="images/pms7.png">
+            <img src="images/pms7.png" alt="Project Management System screenshot" class="thumb">
+          </a>
+          <a target="_blank" href="images/pms8.png">
+            <img src="images/pms8.png" alt="Project Management System screenshot" class="thumb">
+          </a>
+          <a target="_blank" href="images/pms9.png">
+            <img src="images/pms9.png" alt="Project Management System screenshot" class="thumb">
+          </a>
+        <p>Click on an image to enlarge it.</p>
+      </figure>
+
+
+    <p><strong>Challenges:</strong></p>
+    <ul>
+        <li><p>Balancing user-friendliness with the need for powerful features: The PMS app strives to be easy to use while offering the features users need to manage projects effectively.</p></li>
+        <li><p>Developing robust functionality within the constraints of a solo project.</p></li>
+        <li><p>A new project management tool needs to be easy to learn and use to encourage adoption by users who may be accustomed to other tools.</p></li>  
+    </ul>
+    
+    <p><strong>Solutions Implemented:</strong></p>
+    <ul>
+        <li><p>The PMS app's intuitive user interface and focus on CRUD operations (Create, Read, Update, Delete) address the challenge of balancing user-friendliness with powerful features.</p></li>
+        <li><p>This personal project features streamlined workflows for creating, managing, and tracking tasks, with visual progress bars indicating the completion status of each project.</p></li>
+        <li><p>The application features streamlined workflows for creating, managing, and tracking tasks, with visual progress bars indicating the completion status of each project.</p></li>
+        <li><p>Task prioritization and categorization are supported through the use of tags, and tasks can be filtered by tags for efficient information retrieval.</p></li>
+        <li><p>The application provides both list and board views, offering flexible project visualization tailored to different user preferences.</p></li>
+        <li><p>Comprehensive CRUD (Create, Read, Update, Delete) operations are implemented for both tasks and projects.</p></li>
+    </ul>
+    <p><strong>Lessons Learned:</strong></p>
+    <ul>
+        <li><p>Developing a full-stack application solo requires careful planning and time management.</p></li>
+        <li><p>Prioritising core functionality over extensive features is crucial for solo projects with limited resources.</p></li>
+        <li><p>User experience (UX) design is critical for project management tools. A well-designed UX can make even complex features easy to use.</p></li>
+        <li><p>It is important to strike a balance between features and usability. Too many features can overwhelm users, while too few features may not meet their needs.</p></li>
+    </ul>
+    <p><strong>Future Directions:</strong></p>
+    <ul>
+        <li><p>Migaration to the Cloud - just to try how it works and see what are the opportunities offered by cloud-based solutions.</p></li>
+        <li><p>Cost Management and Budgeting Tools are completely missing. This means that either they should be developed from scratch or seamless integration with existing Cost/ Budget tools or popular accounting software (to minimize disruption for users) is necessary.</p></li>
+        <li><p>Time Management Features: a calendar view for deadlines and milestones, basic time tracking for tasks, recurring tasks for repetitive jobs.</p></li>
+        <li><p>Basic Collaboration Tools: social media-style user profiles, basic file-sharing functionality with image uploads, seamless assignment of tasks to specific team members, a simple in-app notification system for task assignments and deadlines</p></li>
+        <li><p>Future development will explore integrations with external tools (like calendar applications) to enhance workflow compatibility.</p></li>
+    </ul>
+    <p><strong></strong></p>
+</main>
+
+  
+
+<footer>
+  <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+ 
+  <p>Dream it. Build it.</p>
+</footer>
+
+
+</body>
+</html>
