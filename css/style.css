@@ -52,6 +52,7 @@ main {
   
 h1, h2, h3, h4 {
     color: #1f78b4;
+    font-family: Tahoma, Arial, sans-serif;
   }
 h4 { 
   font-size: 29px; 
@@ -74,6 +75,25 @@ p {
     font-size: 20px;
     font-family: Tahoma, Arial, sans-serif;
     padding: 1px;
+}
+
+/* Media Query for smaller screens - responsive design */
+@media (max-width: 768px) {
+  h1 {
+      font-size: 32px;
+  }
+  h2 {
+      font-size: 28px;
+  }
+  h3 {
+      font-size: 24px;
+  }
+  h4 {
+      font-size: 20px;
+  }
+  p {
+      font-size: 18px;
+  }
 }
 
 #skills p {font-size: 16px;}
