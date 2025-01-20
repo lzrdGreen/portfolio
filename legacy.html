@@ -49,22 +49,25 @@
     <li>
       <p><strong>Training Optimisation:</strong> The model was trained for 40 epochs using the following setup:</p>
       <ul>
-        <li><p>Batch size of 16 to manage memory usage on the GTX 1080 GPU.</p></li>
+        <li><p>Batch size of 16 to manage memory usage on the GTX 1070 GPU.</p></li>
         <li><p>Cross-entropy loss function, suitable for multi-class classification.</p></li>
         <li><p>Stochastic Gradient Descent (SGD) optimiser with momentum (0.9).</p></li>
-        <li><p>A dynamic learning rate schedule to fine-tune the model during training. The learning rate was initially set to 0.001 for the first 20 epochs. After observing that the validation loss plateaued, the learning rate was reduced to 3e-4 for the next 10 epochs (epochs 11-20). Finally, for the last 10 epochs (epochs 21-40), the learning rate was further reduced to 1e-4 to facilitate finer adjustments and potentially escape local minima.</p></li>
+        <li><p>A dynamic learning rate schedule to fine-tune the model during training. The learning rate was initially set to 0.001 for the first 20 epochs. After observing that the validation loss plateaued, the learning rate was reduced to 3e-4 for the next 10 epochs (epochs 21-30). Finally, for the last 10 epochs (epochs 31-40), the learning rate was further reduced to 1e-4 to facilitate finer adjustments and potentially escape local minima.</p></li>
       </ul>
     </li>
   </ol>
-  <p>This strategy allowed the model to achieve 88% accuracy on the CIFAR-10 test set, surpassing the initial target of 80% and demonstrating the effectiveness of the chosen architecture and training regimen within the given resource constraints. The use of batch normalization proved sufficient for regularization, eliminating the need for dropout.</p>
+  <p>This strategy allowed the model to achieve 88% accuracy on the CIFAR-10 test set, surpassing the initial target of 80% and demonstrating the effectiveness of the chosen architecture and training regimen within the given resource constraints. The use of batch normalisation proved sufficient for regularisation, eliminating the need for dropout.</p>
       </li>
-      <li><p><strong>Impact: </strong>This project provided valuable practical experience in designing and training deep learning models within resource constraints. It solidified my understanding of convolutional layers and their crucial role in image data processing, along with the performance benefits of architectural innovations like multi-scale feature extraction. I also gained proficiency in optimization techniques, including dynamic learning rate schedules and batch normalization, for stabilizing training and maximizing accuracy. Successfully building and fine-tuning a custom CNN architecture to achieve 88% accuracy on CIFAR-10 with limited resources showcased my ability to balance computational efficiency with performance—a critical skill for deep learning research and real-world applications.</p></li>
-    </ul>
-    
+      <li><p><strong>Impact: </strong>This project provided valuable practical experience in designing and training deep learning models within resource constraints. It solidified my understanding of convolutional layers and their crucial role in image data processing, along with the performance benefits of architectural innovations like multi-scale feature extraction. I also gained proficiency in optimization techniques, including dynamic learning rate schedules and batch normalisation, for stabilizing training and maximizing accuracy. Successfully building and fine-tuning a custom CNN architecture to achieve 88% accuracy on CIFAR-10 with limited resources showcased my ability to balance computational efficiency with performance—a critical skill for deep learning research and real-world applications.</p></li>
+    </ul>  
 
-    
     <p>GitHub repo: <a href="https://github.com/lzrdGreen/Models-for-CIFAR-10">github.com/lzrdGreen/Models-for-CIFAR-10</a></p>
     <p><strong>Relevant skills: </strong>Python, PyTorch, Scikit-Learn, matplotlib, numpy, pandas</p>
+
+    <figure>
+      <img src="images/loss.png" alt="Loss for training and validaion sets">
+      <p>Loss for training and validaion sets.</p>
+    </figure>
 
 
     <h2>Application of BERT, a Transformer-based language model, to check the correctness of a sentense in English</h2>
