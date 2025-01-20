@@ -22,19 +22,57 @@
   <main>
     <h1>Legacy Projects</h1>
 
+    <h3>CIFAR-10 Image Classification with Deep Learning</h3>
+    <h4>(2021)</h4>
+    <p><strong>Summary: </strong>This project explores deep learning for a computer vision task on the CIFAR-10 dataset, a standard benchmark for 10-class image classification. The project proceeds in two phases. The initial phase involves experimenting with a basic Convolutional Neural Network (CNN) containing just two convolutional layers using ReLU and Sigmoid activations, followed by experiments with Multi-Layer Perceptrons (MLPs), to demonstrate the importance of convolutional layers for image data and the relative performance of different activation functions. This initial CNN achieved only 63% accuracy. The second phase focuses on developing a more complex CNN architecture, drawing inspiration from VGG-style networks in terms of depth and filter sizes, with the goal of exceeding 80% accuracy on a personal computer equipped with a single GPU. By incorporating techniques like batch normalisation and multi-scale convolutional filters, the final model achieved 88% accuracy on the CIFAR-10 test set, surpassing the initial goal and demonstrating the effectiveness of the chosen approach within the given resource constraints.</p>
+    <ul>
+      <li><p><strong>Problem: </strong>This project aimed to develop an effective deep learning model for the CIFAR-10 dataset within the constraints of a personal computer equipped with a single GTX 1070 GPU. The key challenges included:</p>
+      <ol type="i">
+        <li><p><strong>Demonstrating the Importance of Convolutional Layers: </strong>Initial experiments with a basic two-layer CNN achieved only 63% accuracy. Subsequent trials with Multi-Layer Perceptrons (MLPs) performed even worse, clearly demonstrating the necessity of convolutional layers for effectively extracting features from image data. This comparison motivated the focus on a more advanced approach.</p></li>
+        <li><p><strong>Achieving High Accuracy with Limited Resources: </strong>While established architectures like VGG-16/19 can achieve 90–93% accuracy on CIFAR-10 (and even higher with data augmentation), training such computationally intensive models from scratch was impractical on the available hardware. The challenge was to design a model that approached this level of performance while remaining feasible to train with limited resources.</p></li>
+        <li><p><strong>Optimising Training Strategies: </strong>To maximise performance within the resource constraints, the project employed techniques like batch normalisation and multi-scale convolutional filters to improve accuracy and training stability. The target was to achieve an accuracy exceeding 80% without relying on extensive and complex training pipelines.</p></li>
+      </ol>
+      </li>
+      <li><p><strong>Solution: </strong></p>
+        <p>To address the challenges outlined in the previous section, the project implemented the following solution:</p>
+  <ol type="i">
+    <li>
+      <p><strong>Custom CNN Architecture:</strong> A custom CNN architecture was developed, drawing inspiration from Inception model in its use of multiple convolutional layers with varying filter sizes (3x3, 5x5, 7x7, and 9x9). This multi-scale approach aimed to capture features at different levels of detail. The architecture incorporated:</p>
+      <ul>
+        <li><p>The convolutional section comprised an initial multi-scale feature extraction stage (four parallel convolutions with 3x3 to 9x9 kernels), three subsequent convolutional blocks with varying combinations of operations (convolutions, concatenations, batch normalization, and activations), and a final feature concatenation stage (two parallel convolutions).</p></li>
+        <li><p>Leaky ReLU activation functions (negative slope = 0.1) after the first set of concatenated convolutional layers (<code>act</code>) for improved gradient flow.</p></li>
+        <li><p>Batch normalisation layers (<code>bn1</code> and <code>bn2</code>) strategically placed after the concatenation and activation operations to stabilize training and act as regularization.</li>
+        <li><p>Max pooling layers (<code>maxpool1</code> and <code>maxpool2</code>) to reduce spatial dimensions and introduce translation invariance.</p></li>
+        <li><p>A series of fully connected layers (<code>fc1</code> to <code>fc5</code>) with ReLU activations, culminating in a final output layer with 10 neurons for the 10 CIFAR-10 classes.</p></li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Training Optimisation:</strong> The model was trained for 40 epochs using the following setup:</p>
+      <ul>
+        <li><p>Batch size of 16 to manage memory usage on the GTX 1080 GPU.</p></li>
+        <li><p>Cross-entropy loss function, suitable for multi-class classification.</p></li>
+        <li><p>Stochastic Gradient Descent (SGD) optimiser with momentum (0.9).</p></li>
+        <li><p>A dynamic learning rate schedule to fine-tune the model during training. The learning rate was initially set to 0.001 for the first 20 epochs. After observing that the validation loss plateaued, the learning rate was reduced to 3e-4 for the next 10 epochs (epochs 11-20). Finally, for the last 10 epochs (epochs 21-40), the learning rate was further reduced to 1e-4 to facilitate finer adjustments and potentially escape local minima.</p></li>
+      </ul>
+    </li>
+  </ol>
+  <p>This strategy allowed the model to achieve 88% accuracy on the CIFAR-10 test set, surpassing the initial target of 80% and demonstrating the effectiveness of the chosen architecture and training regimen within the given resource constraints. The use of batch normalization proved sufficient for regularization, eliminating the need for dropout.</p>
+      </li>
+      <li><p><strong>Impact: </strong>This project provided valuable practical experience in designing and training deep learning models within resource constraints. It solidified my understanding of convolutional layers and their crucial role in image data processing, along with the performance benefits of architectural innovations like multi-scale feature extraction. I also gained proficiency in optimization techniques, including dynamic learning rate schedules and batch normalization, for stabilizing training and maximizing accuracy. Successfully building and fine-tuning a custom CNN architecture to achieve 88% accuracy on CIFAR-10 with limited resources showcased my ability to balance computational efficiency with performance—a critical skill for deep learning research and real-world applications.</p></li>
+    </ul>
     
 
-    <p>Image classification using the classical data set CIFAR-10 (accuracy achieved: 88%, for comparison: 70%+ is good; 80% is really good, anything around 90% is industry grade models which much larger) – December 2021:</p>
-    <p><a href="https://github.com/lzrdGreen/Models-for-CIFAR-10">Models for CIFAR-10</a></p>
-    <p><strong>Relevant skills: </strong>Python, Scikit-Learn, matplotlib, numpy, pandas, PyTorch</p>
+    
+    <p>GitHub repo: <a href="https://github.com/lzrdGreen/Models-for-CIFAR-10">github.com/lzrdGreen/Models-for-CIFAR-10</a></p>
+    <p><strong>Relevant skills: </strong>Python, PyTorch, Scikit-Learn, matplotlib, numpy, pandas</p>
 
 
-    <p>Application of BERT, a Transformer-based language model released by Google in 2018, to check the correctness of a sentense in English, mostly reproduced and tweaked a published result – September 2021:</p>
+    <h2>Application of BERT, a Transformer-based language model, to check the correctness of a sentense in English</h2>
+    <h3>(September 2021)</h3>
     <p><a href="https://github.com/lzrdGreen/English-Grammar-Tester">English Grammar Tester</a></p>
 
-    <p><strong>Relevant skills: </strong>Python, Scikit-Learn, matplotlib, numpy, pandas, PyTorch</p>
-        
-    <h1>TBD</h1>
+    <p><strong>Relevant skills: </strong>Python, PyTorch, Scikit-Learn, matplotlib, numpy, pandas</p>
+  
   </main>
 
   
