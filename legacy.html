@@ -20,7 +20,7 @@
   </header>
 
   <main>
-    <h1>Legacy Projects</h1>
+    <h1 id="top">Legacy Projects</h1>
 
     <h3>CIFAR-10 Image Classification with Deep Learning</h3>
     <h4>(2021)</h4>
@@ -41,7 +41,7 @@
       <ul>
         <li><p>The convolutional section comprised an initial multi-scale feature extraction stage (four parallel convolutions with 3x3 to 9x9 kernels), three subsequent convolutional blocks with varying combinations of operations (convolutions, concatenations, batch normalization, and activations), and a final feature concatenation stage (two parallel convolutions).</p></li>
         <li><p>Leaky ReLU activation functions (negative slope = 0.1) after the first set of concatenated convolutional layers (<code>act</code>) for improved gradient flow.</p></li>
-        <li><p>Batch normalisation layers (<code>bn1</code> and <code>bn2</code>) strategically placed after the concatenation and activation operations to stabilize training and act as regularization.</li>
+        <li><p>Batch normalisation layers (<code>bn1</code> and <code>bn2</code>) strategically placed after the concatenation and activation operations to stabilize training and act as regularisation.</li>
         <li><p>Max pooling layers (<code>maxpool1</code> and <code>maxpool2</code>) to reduce spatial dimensions and introduce translation invariance.</p></li>
         <li><p>A series of fully connected layers (<code>fc1</code> to <code>fc5</code>) with ReLU activations, culminating in a final output layer with 10 neurons for the 10 CIFAR-10 classes.</p></li>
       </ul>
@@ -68,13 +68,14 @@
       <img src="images/loss.png" alt="Loss for training and validaion sets">
       <p>Loss for training and validaion sets.</p>
     </figure>
+    <p><a href="#top">Jump to the Top</a></p>
 
 
     <h2>Application of BERT, a Transformer-based language model, to check the correctness of a sentence in English</h2>
     <h3>(September 2021)</h3>
     <p><strong>Summary: </strong>This project tackled the challenge of grammatical error detection in English using Natural Language Processing (NLP) by fine-tuning a pre-trained BERT model with the CoLA dataset. The implementation was completed on a personal computer with a single GTX 1070 GPU, demonstrating the accessibility of advanced NLP techniques without requiring high-performance computing clusters. By validating the model's performance on real-world examples, the project showcased BERT's potential for nuanced linguistic tasks, contributing to understanding fine-tuning techniques and paving the way for practical applications like grammar checkers and language learning tools.</p>
     <ul>
-      <li><p><strong>Problem: </strong>The core problem addressed by this project is the difficulty of accurately and efficiently detecting grammatical errors in English sentences. While humans can generally identify many grammatical mistakes, the process is time-consuming and prone to inconsistencies. At the time of this project (September 2021), Natural Language Processing (NLP) was advancing rapidly, with large language models (LLMs) like BERT demonstrating promising capabilities in various language-based tasks. However, many introductory NLP applications focused on simpler classification tasks like sentiment analysis. Grammatical error detection, a more nuanced challenge, presented an opportunity to explore the potential of LLMs more deeply. Inspired by Chris McCormick's work utilising the Corpus of Linguistic Acceptability (CoLA) dataset and his provided Jupyter Notebook demonstrating fine-tuning a standard pre-trained 12-layer uncased BERT model (released in 2018), this project aimed to replicate and evaluate this fine-tuning process on a personal computing setup (single GTX 1070 GPU). This addressed the need for more sophisticated NLP tasks beyond basic sentiment analysis and explored the practical application of cutting-edge LLMs on readily available hardware.</p></li>
+      <li><p><strong>Problem: </strong>The core problem addressed by this project is the difficulty of accurately and efficiently detecting grammatical errors in English sentences. While humans can generally identify many grammatical mistakes, the process is time-consuming and prone to inconsistencies. At the time of this project (September 2021), Natural Language Processing (NLP) was advancing rapidly, with large language models (LLMs) like BERT demonstrating promising capabilities in various language-based tasks. However, many introductory NLP applications focus on simpler classification tasks like sentiment analysis, which, thanks to readily available pre-trained models, have become remarkably streamlined. For instance, models like <code>cardiffnlp/twitter-roberta-base-sentiment-latest</code> (fine-tuned on a large dataset of tweets labeled with sentiment) from the Hugging Face Model Hub can be directly employed for accurate sentiment classification using only a simple downstream classifier like logistic regression, without requiring further training. Grammatical error detection, a more nuanced challenge, presents an opportunity to explore the potential of LLMs more deeply. Inspired by Chris McCormick's work utilising the Corpus of Linguistic Acceptability (CoLA) dataset and his provided Jupyter Notebook demonstrating fine-tuning a standard pre-trained 12-layer uncased BERT model (released in 2018), this project aimed to replicate and evaluate this fine-tuning process on a personal computing setup (single GTX 1070 GPU). This addressed the need for more sophisticated NLP tasks beyond basic sentiment analysis and explored the practical application of cutting-edge LLMs on readily available hardware.</p></li>
 
       <li><p><strong>Solution: </strong>This project implemented a solution based on fine-tuning a pre-trained BERT model for binary classification of grammatical acceptability using the CoLA dataset. The key steps involved:</p>
         <ol type="i">
@@ -100,7 +101,8 @@
     <p>GitHub repo: <a href="https://github.com/lzrdGreen/English-Grammar-Tester">English Grammar Tester</a></p>
 
     <p><strong>Relevant skills: </strong>Python, PyTorch, Scikit-Learn, matplotlib, numpy, pandas</p>
-  
+    
+    <p><a href="#top">Jump to the Top</a></p>
   </main>
 
   
