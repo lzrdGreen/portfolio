@@ -1,83 +1,202 @@
 body {
     font-family: Tahoma, Arial, sans-serif;
     line-height: 1.6;
-    margin: 50px;
+    margin: 0;
     padding: 0;
-    background-color: #f3f4f6;
-  }
-  
-  
-header, footer {
-    background: #1f78b4;
-    color: white;
-    padding: 20px 10px;
-    text-align: center;
+    background-color: #ffffff;
+    color: #111122;
   }
 
-header h1 {
-  color: white;
-    padding: 20px 10px;
+  header {
     text-align: center;
-}
+    padding: 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+  }
 
-nav li a {
-    text-decoration: none;
-    color: white;
-    padding: 5px;
-    font-size: 20px;
-}
-nav li a:hover {
-    color: #d1d5db;
-}
+  header h1 {
+    font-size: 2.5em;
+    color: #1f78b4;
+    margin: 0;
+  }
 
-footer a {
-  text-decoration: none;
-    color: white;
-    padding: 5px;
-    font-size: 20px;
-}
-
-footer a:hover {
-  color: #d1d5db;
-}
-nav ul {
+  nav ul {
     list-style: none;
+    padding: 0;
     display: flex;
     justify-content: center;
-}
-  
-main {
-    padding: 20px;
+    margin-top: 10px;
   }
-  
-h1, h2, h3, h4 {
+
+  nav li {
+    margin: 0 15px;
+  }
+
+  nav a {
+    text-decoration: none;
     color: #1f78b4;
-    font-family: Tahoma, Arial, sans-serif;
+    font-size: 1em;
   }
-h4 { 
-  font-size: 29px; 
-}
 
-h3 { 
-  font-size: 34px; 
-}
+  nav a:hover {
+    text-decoration: underline;
+  }
 
-h2 { 
-  font-size: 39px; 
-}
+  main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+   
 
-h1 { 
-  font-size: 44px; 
-}
+  h1, h2, h3, h4 {
+    color: #1f78b4;
+  }
 
-p {
-    color: #111122;
-    font-size: 20px;
-    font-family: Tahoma, Arial, sans-serif;
-    padding: 1px;
-}
+  button {
+    background-color: #cee7f1;
+    color: #000;
+    border: 2px solid #1f78b4;
+    cursor: pointer;
+    padding: 5px 9px;
+    border-radius: 3px;
+  }
+    
+  button:hover {
+      background: #a6cee3;
+  }
 
-/* Media Query for smaller screens - responsive design */
+  .intro h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #1f78b4;
+    margin-bottom: 10px;
+  }
+  
+  .intro h2 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #555555;
+    margin-bottom: 20px;
+  }
+  
+  .intro p {
+    text-align: center;
+    font-size: 1em;
+    color: #333333;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .project {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;    
+  }
+  
+  .project img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;object-fit: contain; /* Prevents image distortion */
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  
+  .project h3 {
+    font-size: 1.25em;
+    color: #1f78b4;
+    margin-bottom: 10px;
+  }
+  
+  .project p {
+    font-size: 1em;
+    color: #555555;
+    margin-bottom: 15px;
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  /* Borrowed from: https://www.w3schools.com/howto/howto_css_thumbnail.asp */
+  .thumb {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 12px;    
+    width: 175px;
+  }
+  .thumb:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+  figure {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 15px;
+  }
+
+  code {
+    font-family: monospace; /* Use a monospace font for code */
+    font-size: 16px; /* Adjust font size as needed */
+    background-color: #f0f0f0; /* Set a light background color */
+    padding: 2px 4px; /* Add some padding for better readability */
+    border-radius: 3px; /* Add rounded corners */
+  }
+  pre {
+    background: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #ffffff;
+  }
+
+  footer p {
+    margin: 5px 0;
+    color: #555555;
+  }
+
+  footer a {
+    color: #1f78b4;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  footer h3 {
+    color: #1f78b4;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Media Query for smaller screens - responsive design */
 @media (max-width: 768px) {
   h1 {
       font-size: 32px;
@@ -95,83 +214,3 @@ p {
       font-size: 18px;
   }
 }
-
-#skills p {font-size: 16px;}
-
-/* Borrowed from: https://www.w3schools.com/howto/howto_css_thumbnail.asp */
-.thumb {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 3px;
-  margin: 12px;
-  width: 175px;
-}
-.thumb:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-
-  
-pre {
-    background: #f4f4f4;
-    padding: 10px;
-    border: 1px solid #ddd;
-    overflow-x: auto;
-  }
-
-  code {
-    font-family: monospace; /* Use a monospace font for code */
-    font-size: 16px; /* Adjust font size as needed */
-    background-color: #f0f0f0; /* Set a light background color */
-    padding: 2px 4px; /* Add some padding for better readability */
-    border-radius: 3px; /* Add rounded corners */
-  }
-  
- 
-  
-button {
-    background-color: #cee7f1;
-    color: #000;
-    border: 2px solid #1f78b4;
-    cursor: pointer;
-    padding: 5px 9px;
-    border-radius: 3px;
-}
-  
-button:hover {
-    background: #a6cee3;
-}
-
-img {
-  width: 30%;
-  margin: 15px;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-aside {
-  width: 40%;
-  padding-left: 15px;
-  margin-left: 15px;
-  float: right;
-  font-family: Tahoma, Arial, sans-serif;
-  background-color: #fefce8;
-  border: 2px solid #d97706;
-  border-radius: 5px;
-}
-
-footer {
-    background-color: #1f78b4;
-    height: 95px;
-    padding: 10px;
-}
-footer p {
-    font-size: 20px;
-    font-family: Tahoma, Arial, sans-serif;
-    color: #fff;
-    text-align: center;
-}
-  
