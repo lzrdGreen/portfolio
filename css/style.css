@@ -122,12 +122,28 @@ body {
   }
   
   .project h3 {
+    text-align: center;
     font-size: 1.25em;
     color: #1f78b4;
     margin-bottom: 10px;
   }
   
   .project p {
+    text-align: center;
+    font-size: 1em;
+    color: #555555;
+    margin-bottom: 15px;
+  }
+
+  .recent h3 {
+    text-align: center;
+    font-size: 1.25em;
+    color: #1f78b4;
+    margin-bottom: 10px;
+  }
+
+  .recent p {
+    text-align: center;
     font-size: 1em;
     color: #555555;
     margin-bottom: 15px;
@@ -157,10 +173,10 @@ body {
 
   code {
     font-family: monospace; /* Use a monospace font for code */
-    font-size: 16px; /* Adjust font size as needed */
-    background-color: #f0f0f0; /* Set a light background color */
-    padding: 2px 4px; /* Add some padding for better readability */
-    border-radius: 3px; /* Add rounded corners */
+    font-size: 16px; 
+    background-color: #f0f0f0; 
+    padding: 2px 4px; /* some padding for better readability */
+    border-radius: 3px; /* rounded corners */
   }
   pre {
     background: #f4f4f4;
