@@ -73,7 +73,7 @@
     <p><a href="#top">Jump to the Top</a></p>
 
 
-    <h2>Application of BERT, a Transformer-based language model, to check the correctness of a sentence in English</h2>
+    <h2 id="bert">Application of BERT, a Transformer-based language model, to check the correctness of a sentence in English</h2>
     <h3>(September 2021)</h3>
     <p><strong>Summary: </strong>This project tackled the challenge of grammatical error detection in English using Natural Language Processing (NLP) by fine-tuning a pre-trained BERT model with the CoLA dataset. The implementation was completed on a personal computer with a single GTX 1070 GPU, demonstrating the accessibility of advanced NLP techniques without requiring high-performance computing clusters. By validating the model's performance on real-world examples, the project showcased BERT's potential for nuanced linguistic tasks, contributing to understanding fine-tuning techniques and paving the way for practical applications like grammar checkers and language learning tools.</p>
     <ul>
@@ -104,6 +104,130 @@
 
     <p><strong>Relevant skills: </strong>Python, PyTorch, Scikit-Learn, matplotlib, numpy, pandas</p>
     
+    <p><a href="#top">Jump to the Top</a></p>
+
+    <h2 id="fine-tuning">Fine Tuning of Qwen2.5-0.5B-Instruct Model</h2>
+    <h3>(2025)</h3>
+    
+    <p>My 2021 project, <a href="#bert">"Application of BERT to check the correctness of a sentence,"</a> has found an unexpected continuation. While BERT—a masked language model specialised in question answering and sentence classification—represented one approach, generative LLMs now offer an alternative path.</p>
+    <p>I'm exploring these models through hands-on training on my personal laptop, which limits me to small-scale/compact LLMs. Qwen2.5-0.5B-Instruct is one of them, a tiny LLM with half a billion parameters.</p>
+
+    <p>I assessed various fine-tuning techniques (Table 1 below), using perplexity (PPL) as the evaluation metric—this quantifies how well the model predicts the next token, with lower scores indicating better performance. Each model version was evaluated using diverse prompts, compared against the baseline Qwen2.5-0.5B-Instruct model without fine-tuning.</p>
+
+    <p>I first investigated two approaches: <a href="https://lzrdgreen.github.io/LLMs/SFT.html">Supervised Fine-Tuning (SFT)</a> on conversational <code>HuggingFaceH4/ultrachat_200k</code> dataset, and <a href="https://lzrdgreen.github.io/LLMs/dpo9.html">Direct Preference Optimisation (DPO)</a> on <code>argilla/distilabel-intel-orca-dpo-pairs</code> dataset of accepted/rejected response pairs. Contrary to common belief that human expertise benefits LLM performance, DPO showed virtually no improvement over baseline and proved challenging for my RTX 4080 GPU—the session with the best <code>evaluation_loss</code> ended in a runtime error near completion. More stable settings yielded slightly worse <code>evaluation_loss</code> results. In contrast, <a href="https://lzrdgreen.github.io/LLMs/SFT.html">Supervised Fine-Tuning (SFT)</a> demonstrated significant improvements, producing the best models according to PPL metrics. The same Jupyter notebook contains evaluation runs for both the baseline model and the pure DPO model loaded from its best checkpoint.</p>
+
+    <p>Given DPO's discouraging results, I tested applying DPO after initial SFT (see <a href="https://lzrdgreen.github.io/LLMs/DPOafterSFT.html">DPOafterSFT notebook</a>). This approach deteriorated PPL, but less severely than pure DPO.  I then applied a second round of SFT to create an <a href="https://lzrdgreen.github.io/LLMs/SFTDPOSFT.html">SFT-DPO-SFT</a> sequence, which yielded significant improvements nearly matching pure SFT. However, determining which metrics best reflect human preferences remains challenging.</p>
+    <p>Notably, all models performed strongest on creative writing tasks (e.g., "Write a scene from a play..."). Interestingly, while most factual prompts received good PPL scores, the specific prompt "Give me three facts about London" proved challenging for all models—possibly because the abundance of potential facts makes selection difficult.</p>
+    <h3>Table 1.</h3> 
+    <h3>Perplexity for Fine-Tuned Qwen2.5-0.5B-Instruct Model Using Various Techniques</h3>
+    <div style="overflow-x:auto;">
+      <table>
+        <tr>
+          <th>Prompt</th>
+          <th>Supervised Fine Tuning</th>
+          <th>Direct Preference Optimisation</th>
+          <th>DPOafterSFT</th>
+          <th>SFT-DPO-SFT</th>
+          <th>Baseline</th>
+        </tr>
+        <tr>
+          <th>What is AI?</th>
+          <th>88.66</th>
+          <th>178.1</th>
+          <th>104.6</th>
+          <th>93.62</th>
+          <th>179.5</th>
+        </tr>
+        <tr>
+          <th>Tell me something interesting about Albert Einstein.</th>
+          <th>60.97</th>
+          <th>124.8</th>
+          <th>74.59</th>
+          <th>61.76</th>
+          <th>118.6</th>
+        </tr>
+        <tr>
+          <th>Tell me something about Large Language Models.</th>
+          <th>86.54</th>
+          <th>120.5</th>
+          <th>94.39</th>
+          <th>87.35</th>
+          <th>119.8</th>
+        </tr>
+        <tr>
+          <th>What is geometry? Explain it step by step.</th>
+          <th>50.75</th>
+          <th>80.79</th>
+          <th>60.04</th>
+          <th>54.14</th>
+          <th>80.46</th>
+        </tr>
+        <tr>
+          <th>Explain the concept of entropy in simple terms.</th>
+          <th>42.76</th>
+          <th>60.68</th>
+          <th>44.75</th>
+          <th>42.43</th>
+          <th>60.53</th>
+        </tr>
+        <tr>
+          <th>Tell me something about Jean Baudrillard.</th>
+          <th>50.86</th>
+          <th>82.91</th>
+          <th>55.48</th>
+          <th>51.20</th>
+          <th>81.40</th>
+        </tr>
+        <tr>
+          <th>Who was David Hilbert?</th>
+          <th>91.98</th>
+          <th>179.7</th>
+          <th>131.0</th>
+          <th>99.74</th>
+          <th>176.0</th>
+        </tr>
+        <tr>
+          <th>Give me three facts about London.</th>
+          <th>108.7</th>
+          <th>204.4</th>
+          <th>120.2</th>
+          <th>109.3</th>
+          <th>200.9</th>
+        </tr>
+        <tr>
+          <th>Tell a short story about enemies who eventually became friends, why did it happen?</th>
+          <th>86.02</th>
+          <th>117.0</th>
+          <th>97.68</th>
+          <th>86.90</th>
+          <th>114.8</th>
+        </tr>
+        <tr>
+          <th>Write a scene from a play where two men are having a philosophical debate about the nature of consciousness.</th>
+          <th>24.19</th>
+          <th>32.03</th>
+          <th>25.83</th>
+          <th>24.79</th>
+          <th>31.64</th>
+        </tr>
+        <tr>
+          <th>Imagine you are a time traveler who has just arrived in the remote future. Describe what you observe that is significantly different from today.</th>
+          <th>27.74</th>
+          <th>36.18</th>
+          <th>30.26</th>
+          <th>28.76</th>
+          <th>36.16</th>
+        </tr>
+        <tr>
+          <th>Tell me something about love.</th>
+          <th>76.32</th>
+          <th>138.5</th>
+          <th>87.30</th>
+          <th>77.46</th>
+          <th>136.0</th>
+        </tr>
+      </table>
+    </div>
     <p><a href="#top">Jump to the Top</a></p>
   </main>
 

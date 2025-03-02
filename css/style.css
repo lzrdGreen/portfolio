@@ -185,6 +185,21 @@ body {
     overflow-x: auto;
   }
 
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #aaa;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 10px;
+  }
+  
+  tr:nth-child(even){background-color:#d3e7f1}
+  tr:hover {background-color: #b2df8a;}
+
   footer {
     text-align: center;
     padding: 20px;
