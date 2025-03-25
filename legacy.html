@@ -107,13 +107,26 @@
     
     <p><a href="#top">Jump to the Top</a></p>
 
-    <h2 id="fine-tuning">Fine Tuning of Qwen2.5-0.5B-Instruct Model</h2>
-    <h3>(2025)</h3>
-    
+    <h1 id="fine-tuning">LLM Fine-Tuning</h1>
+    <p>In 2024-25, compact LLMs emerged as a promising area of research.</p>
     <p>My 2021 project, <a href="#bert">"Application of BERT to check the correctness of a sentence,"</a> has found an unexpected continuation. While BERT—a masked language model specialised in question answering and sentence classification—represented one approach, generative LLMs now offer an alternative path.</p>
-    <p>I'm exploring these models through hands-on training on my personal laptop, which limits me to small-scale/compact LLMs. Qwen2.5-0.5B-Instruct is one of them, a tiny LLM with half a billion parameters.</p>
+    <p>I'm exploring these models through hands-on training on my personal laptop, which limits me to small-scale/compact LLMs.</p>
 
-    <p>I assessed various fine-tuning techniques (Table 1 below), using perplexity (PPL) as the evaluation metric—this quantifies how well the model predicts the next token, with lower scores indicating better performance. Each model version was evaluated using diverse prompts, compared against the baseline Qwen2.5-0.5B-Instruct model without fine-tuning.</p>
+    <h2>GRPO Fine-Tuning of Gemma 3-1B-it</h2>
+    <h3>(March 2025)</h3>
+    <p><strong>Summary: </strong>"Tiny Large Language Models (LLMs) like Qwen2.5-0.5B and TinyLlama-1.1B seem to lack reasoning capabilities. <a href="https://lzrdgreen.github.io/LLMs/GRPO_Gemma-3-1B.html">This study</a> explores fine-tuning of Gemma 3-1B-it, the smallest in the recent Google family, using GRPO and a targeted reward system, on the 'causal_judgement' subset of the BBH dataset. This resulted in a promising accuracy improvement, demonstrating the model's enhanced reasoning capabilities.</p>
+    <ul>
+      <li><p><strong>Problem: </strong>Most tiny Large Language Models (LLMs), including Qwen2.5-0.5B and TinyLlama-1.1B, demonstrate extremely limited reasoning abilities. While Gemma 3-1B-it showed promise in basic mathematical tasks, a critical question remained: Can it develop meaningful reasoning capabilities?" </p></li>
+      <li><p><strong>Solution: </strong>To address the reasoning challenge, I selected the 'causal_judgement' subset from the BBH dataset, recognising that the standard GSM8K dataset would likely overwhelm a tiny LLM. While the dataset's small size of 187 samples raises potential statistical bias concerns, it also reflects the challenge of developing effective training strategies for LLMs when faced with the real-world constraints of limited, proprietary datasets, as increasingly seen in the AI-backed app industry's shift towards in-house models. Group Relative Policy Optimisation (GRPO) was employed to fine-tune Gemma 3-1B-it. I developed a strategic reward system that penalises irrelevant or verbose responses and prioritises accurate binary answers. This targeted approach aimed to enhance the model's ability to discern causal relationships and produce accurate yes/no answers. The subset's binary answer format enabled straightforward evaluation using metrics like confusion matrix and accuracy, providing a clear method to measure reasoning improvement.</p></li> 
+      <li><p><strong>Impact: </strong> After 1,600 training steps, the GRPO fine-tuned Gemma 3-1B-it model showed notable performance gains. The accuracy increased from 20% to 50% while the confusion matrix improved from {'TP': 4, 'TN': 0, 'FP': 7, 'FN': 9} for the raw model to {'TP': 8, 'TN': 2, 'FP': 5, 'FN': 5} after training. These preliminary results suggest GRPO's potential for enhancing reasoning capabilities in Gemma 3-1B-it, particularly when trained on limited, proprietary datasets that mirror real-world scenarios like onboarding new hires. Future research should focus on evaluating the approach using domain-specific datasets that support binary yes/no target answers to further validate the GRPO fine-tuning method's robustness and practical applicability.</p></li>
+    </ul>
+    
+    <h2>Fine Tuning of Qwen2.5-0.5B-Instruct Model</h2>
+    <h3>(February 2025)</h3>   
+    
+    <p>Qwen2.5-0.5B-Instruct is a tiny LLM with half a billion parameters. This study examines various fine-tuning approaches (SFT and DPO, both independently and in combination) against each other and the baseline model.</p>
+
+    <p>I assessed the fine-tuning techniques (Table 1 below), using perplexity (PPL) as the evaluation metric—this quantifies how well the model predicts the next token, with lower scores indicating better performance. Each model version was evaluated using diverse prompts, compared against the baseline Qwen2.5-0.5B-Instruct model without fine-tuning.</p>
 
     <p>I first investigated two approaches: <a href="https://lzrdgreen.github.io/LLMs/SFT.html">Supervised Fine-Tuning (SFT)</a> on conversational <code>HuggingFaceH4/ultrachat_200k</code> dataset, and <a href="https://lzrdgreen.github.io/LLMs/dpo9.html">Direct Preference Optimisation (DPO)</a> on <code>argilla/distilabel-intel-orca-dpo-pairs</code> dataset of accepted/rejected response pairs. Contrary to common belief that human expertise benefits LLM performance, DPO showed virtually no improvement over baseline and proved challenging for my RTX 4080 GPU—the session with the best <code>evaluation_loss</code> ended in a runtime error near completion. More stable settings yielded slightly worse <code>evaluation_loss</code> results. In contrast, <a href="https://lzrdgreen.github.io/LLMs/SFT.html">Supervised Fine-Tuning (SFT)</a> demonstrated significant improvements, producing the best models according to PPL metrics. The same Jupyter notebook contains evaluation runs for both the baseline model and the pure DPO model loaded from its best checkpoint.</p>
 
