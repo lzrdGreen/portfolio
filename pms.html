@@ -28,13 +28,13 @@
     <small><b>Tip: Wait 2s & Reload if you see a confusing message like "Something went wrong while trying to load this site".</b></small>
     <p>(Actually, nothing went wrong. The hosting provider is free so they hybernate the website if unused.)</p> 
     
-    <p><strong>Overview/Goals: </strong>The PMS app offers a user-friendly, versatile project management solution, enabling users to efficiently create, view, edit, and delete tasks and projects (CRUD operations). It provides dual views (list and board) for enhanced project visualisation, streamlining workflows while prioritising simplicity and usability. Designed for small businesses and freelancers, the app avoids feature overload often found in complex tools. Currently, my focus is on migrating the application to the cloud using a "lift, tinker, and shift" strategy to explore containerization and AWS services.</p>
+    <p><strong>Overview/Goals: </strong>The PMS app offers a user-friendly, versatile project management solution, enabling users to efficiently create, view, edit, and delete tasks and projects (CRUD operations). It provides dual views (list and board) for enhanced project visualisation, streamlining workflows while prioritising simplicity and usability. Designed for small businesses and freelancers, the app avoids feature overload often found in complex tools. Recently I applied the replatforming strategy (also known as "lift, tinker, and shift") to <a href="proj.html#pms-api">migrate it to to AWS</a></p>
     <p>GitHub repo: <a href="https://github.com/lzrdGreen/pms">github.com/lzrdGreen/pms</a></p>
     <p><strong>Technical Details:</strong></p>
     <ul>
         <li><p><strong>Programming languages and frameworks: </strong>Python, Django</p></li>
-        <li><p><strong>Database technology: </strong>orirginally the project used the default SQLite, a lightweight database suitable for development environments, however it is not supported in the AWS Cloud so migration would force usage of MySQL version of Amazon Relational Database Service, a more scalable option for cloud deployments.</p></li>
-        <li><p><strong>Deployment details: </strong>Live deployment on PythonAnywhere</p></li>
+        <li><p><strong>Database technology: </strong>The project primarily uses SQLite, a lightweight database suitable for its current deployment. In the context of its ongoing cloud migration to AWS, SQLite is also currently utilised within the main application's Docker container, mirroring the local development setup. There's a future plan to transition to MySQL for enhanced scalability and robust cloud deployment, managing this within separate containers in AWS ECS.</p></li>
+        <li><p><strong>Deployment details: </strong>The stable version of the application is currently live on PythonAnywhere. Simultaneously, an experimental version is containerised with Docker and running on an AWS EC2 instance as part of the ongoing "lift, tinker, and shift" cloud migration effort.</p></li>
     </ul>
     <p><strong>Key Features:</strong></p>
     <ul>
@@ -106,16 +106,7 @@
         <li><p>User experience (UX) design is critical for project management tools. A well-designed UX can make even complex features easy to use.</p></li>
         <li><p>It is important to strike a balance between features and usability. Too many features can overwhelm users, while too few features may not meet their needs.</p></li>
     </ul>
-    <p><strong>Future Directions:</strong></p>
-    <ul>
-        <li><p>Migaration to the Cloud - just to try how it works and see what are the opportunities offered by cloud-based solutions.</p></li>
-        <li><p>Cost Management and Budgeting Tools are completely missing. This means that either they should be developed from scratch or seamless integration with existing Cost/ Budget tools or popular accounting software (to minimize disruption for users) is necessary.</p></li>
-        <li><p>Time Management Features: a calendar view for deadlines and milestones, basic time tracking for tasks, recurring tasks for repetitive jobs.</p></li>
-        <li><p>Basic Collaboration Tools: social media-style user profiles, basic file-sharing functionality with image uploads, seamless assignment of tasks to specific team members, a simple in-app notification system for task assignments and deadlines</p></li>
-        <li><p>Future development will explore integrations with external tools (like calendar applications) to enhance workflow compatibility.</p></li>
-    </ul>
-    <p><strong></strong></p>
-
+    
     <p><a href="#top">Jump to the Top</a></p>
 </main>
 
